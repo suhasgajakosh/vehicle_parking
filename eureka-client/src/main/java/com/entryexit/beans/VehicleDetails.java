@@ -1,11 +1,14 @@
 package com.entryexit.beans;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.joda.time.DateTime;
+import com.entryexit.beans.VehicleType;
+
 
 @Entity
 public class VehicleDetails {
@@ -20,21 +23,26 @@ public class VehicleDetails {
 
 	private String vehicleOwnerName;
 
-	private DateTime vehicleEntryTime;
+	private Date vehicleEntryTime;
 
-	private DateTime vehicleExitTime;
+	private Date vehicleExitTime;
+	
+	private String errorMessage;
+	
+	
 
-	protected VehicleDetails() {
+	public VehicleDetails() {
 
 	}
 
 	public VehicleDetails(VehicleType vehicleType, String vehicleNumber, String vehicleOwnerName,
-			DateTime vehicleEntryTime, DateTime vehicleExitTime) {
+			Date vehicleEntryTime, Date vehicleExitTime, String errorMessage) {
 		this.vehicleType = vehicleType;
 		this.vehicleNumber = vehicleNumber;
 		this.vehicleOwnerName = vehicleOwnerName;
 		this.vehicleEntryTime = vehicleEntryTime;
 		this.vehicleExitTime = vehicleExitTime;
+		this.errorMessage = errorMessage;
 	}
 
 	public VehicleType getVehicleType() {
@@ -53,19 +61,19 @@ public class VehicleDetails {
 		this.vehicleNumber = vehicleNumber;
 	}
 
-	public DateTime getVehicleEntryTime() {
+	public Date getVehicleEntryTime() {
 		return vehicleEntryTime;
 	}
 
-	public void setVehicleEntryTime(DateTime vehicleEntryTime) {
+	public void setVehicleEntryTime(Date vehicleEntryTime) {
 		this.vehicleEntryTime = vehicleEntryTime;
 	}
 
-	public DateTime getVehicleExitTime() {
+	public Date getVehicleExitTime() {
 		return vehicleExitTime;
 	}
 
-	public void setVehicleExitTime(DateTime vehicleExitTime) {
+	public void setVehicleExitTime(Date vehicleExitTime) {
 		this.vehicleExitTime = vehicleExitTime;
 	}
 
@@ -77,11 +85,19 @@ public class VehicleDetails {
 		this.vehicleOwnerName = vehicleOwnerName;
 	}
 
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
 	@Override
 	public String toString() {
 		return "VehicleDetails [id=" + id + ", vehicleType=" + vehicleType + ", vehicleNumber=" + vehicleNumber
 				+ ", vehicleOwnerName=" + vehicleOwnerName + ", vehicleEntryTime=" + vehicleEntryTime
-				+ ", vehicleExitTime=" + vehicleExitTime + "]";
+				+ ", vehicleExitTime=" + vehicleExitTime + ", errorMessage=" + errorMessage + "]";
 	}
-
+	
 }
