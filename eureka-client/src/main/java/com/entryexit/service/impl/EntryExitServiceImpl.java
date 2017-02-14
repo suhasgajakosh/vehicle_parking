@@ -14,6 +14,9 @@ public class EntryExitServiceImpl implements EntryExitService {
 
 	@Autowired
 	VehicleDetailsRepository repo;
+	
+	
+	String news = null;
 
 	@Override
 	public void saveVehicleDetails(VehicleDetails vehicleDetails) {
